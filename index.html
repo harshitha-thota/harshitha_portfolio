@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Harshitha Thota - Software Engineer Portfolio showcasing AI-driven and full-stack projects.">
+    <title>Harshitha Thota | Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f9fafb;
+            color: #1f2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            animation: slideIn 1s ease-out;
+        }
+
+        .hero img {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 4px solid #3b82f6;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text a {
+            display: inline-block;
+            background: #3b82f6;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .hero-text a:hover {
+            background: #1e40af;
+        }
+
+        nav {
+            background: #fff;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3b82f6;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-in;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1e3a8a;
+            text-align: center;
+        }
+
+        .skills-grid, .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card, .project-card, .experience-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover, .project-card:hover, .experience-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-card h3 {
+            font-size: 1.4rem;
+            color: #3b82f6;
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-card p {
+            color: #4b5563;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            color: #4b5563;
+        }
+
+        .experience-card h3 {
+            font-size: 1.6rem;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-card p {
+            font-style: italic;
+            color: #6b7280;
+            margin-bottom: 0.8rem;
+        }
+
+        .experience-card ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            color: #4b5563;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background: #3b82f6;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #1e40af;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-links a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: #1e40af;
+        }
+
+        footer {
+            background: #1e3a8a;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                background: #fff;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 1rem;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero">
+            <img src="https://via.placeholder.com/200" alt="Harshitha Thota">
+            <div class="hero-text">
+                <h1>Harshitha Thota</h1>
+                <p>Software Engineer | Specializing in AI & Full-Stack Development</p>
+                <a href="#projects">Explore My Work</a>
+                <a href="https://via.placeholder.com/resume.pdf" download>Download Resume</a>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <div class="hamburger">☰</div>
+        <ul>
+            <li><a href="#profile">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="profile">
+        <h2>About Me</h2>
+        <p>Software Engineer with over 2 years of experience building scalable full-stack applications and AI-driven systems. I specialize in microservices architecture and API optimization, with a proven track record of reducing system latency and leading cross-functional teams to deliver high-impact solutions in financial and healthcare domains.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Languages</h3>
+                <p>Java, Python, C++, JavaScript, TypeScript</p>
+            </div>
+            <div class="skill-card">
+                <h3>Frameworks</h3>
+                <p>Spring Boot, React.js, Node.js, Flask</p>
+            </div>
+            <div class="skill-card">
+                <h3>Databases</h3>
+                <p>PostgreSQL, MongoDB, MySQL</p>
+            </div>
+            <div class="skill-card">
+                <h3>Tools</h3>
+                <p>Git, Docker, Kubernetes, Jenkins, Splunk, Postman, Maven, IntelliJ, VS Code, Power BI</p>
+            </div>
+            <div class="skill-card">
+                <h3>Cloud</h3>
+                <p>AWS (EC2, S3)</p>
+            </div>
+            <div class="skill-card">
+                <h3>Architecture</h3>
+                <p>Microservices, REST API</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <div class="experience-card">
+            <h3>AI Software Engineer Intern | Resilience, Inc.</h3>
+            <p>Aug 2024 - Dec 2024 | Remote</p>
+            <ul>
+                <li>Developed user-facing features for AIMEE AI app using Firebase, enabling secure authentication for 5,000+ users.</li>
+                <li>Integrated cross-platform APIs, reducing data retrieval time by 15% through optimized queries.</li>
+                <li>Collaborated with product teams to resolve 30+ technical issues, enhancing app stability.</li>
+            </ul>
+        </div>
+        <div class="experience-card">
+            <h3>System Engineer | Infosys</h3>
+            <p>Sep 2021 - Jul 2023 | Hyderabad, India</p>
+            <ul>
+                <li>Designed and developed high-performance APIs for WPB Core Banking Project using Spring Boot, supporting 10,000+ daily transactions.</li>
+                <li>Migrated 20+ MuleSoft APIs to Spring Boot for SABB project, integrating SAPI and PAPI with RESTful and SOAP APIs.</li>
+                <li>Automated CI/CD pipelines with Jenkins, reducing deployment time by 30%.</li>
+                <li>Enhanced application performance using Splunk, improving response times by 15%.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Dynamic Sports League Website</h3>
+                <p>Created a TypeScript-based website with standings, schedules, and player login. Enabled organizers to manage rosters and designed a responsive UI.</p>
+                <p><strong>Technologies:</strong> TypeScript, React.js</p>
+            </div>
+            <div class="project-card">
+                <h3>Population Health Insights Dashboard</h3>
+                <p>Developed a full-stack dashboard to analyze patient demographics and disease trends, processing 144,518 encounters. Built interactive charts and CSV exports, reducing reporting time by 50%.</p>
+                <p><strong>Technologies:</strong> Node.js, React.js, MongoDB</p>
+            </div>
+            <div class="project-card">
+                <h3>Global Online Gaming Anxiety Study</h3>
+                <p>Applied machine learning models to predict life satisfaction with 85% accuracy, analyzing survey data on gaming and mental health.</p>
+                <p><strong>Technologies:</strong> Python, Machine Learning</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education & Certifications</h2>
+        <div class="experience-card">
+            <h3>Master of Science in Computer Science</h3>
+            <p>Saint Louis University, St. Louis, MO | 2023 - 2025</p>
+        </div>
+        <div class="experience-card">
+            <h3>Bachelor of Science in Computer Science</h3>
+            <p>Bhoj Reddy Engineering College for Women, Hyderabad, India | 2021 - 2023</p>
+        </div>
+        <div class="experience-card">
+            <h3>Certifications</h3>
+            <p>Machine Learning and Artificial Intelligence, Innovians Technologies | June 2019</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Interested in collaborating or discussing opportunities? Reach out!</p>
+        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="contact-links">
+            <a href="mailto:harshitha.thota@slu.edu">Email: harshitha.thota@slu.edu</a>
+            <a href="https://www.linkedin.com/in/harshitha-thota-02bab41b4/" target="_blank">LinkedIn</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Harshitha Thota. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('href').substring(1);
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('nav ul');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
